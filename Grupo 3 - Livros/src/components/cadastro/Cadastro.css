@@ -1,0 +1,99 @@
+.section_cadastro{
+    background-color: #344F30;
+    color: white;
+
+    padding: 50px 0;
+}
+
+.form_cadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_cadastro h1{
+    text-transform: uppercase;
+    color: white;
+
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    transition: all 0.4s ease;
+    cursor: default;
+}
+
+.form_cadastro h1:hover{
+    background-color: #344F30;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.form_cadastro hr {
+    max-width: 300px;
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    margin-top: 5px;
+}
+
+.campos_cadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 25px;
+    padding-top: 60px;
+}
+
+/* modificando o input e select */
+.campo_cad_nome input,
+.campo_cad_genero select{
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 5px;
+
+    width: 300px;
+    height: 30px;
+
+    box-shadow: 1px 4px 4px 0px #00000045;
+
+    margin-top: 7px;
+}
+
+.campo_cad_genero,
+.campo_cad_nome{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.botao-upload {
+    width: 200px;
+    height: 40px;
+    background: #411102;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 880px) {
+    .campos_cadastro{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .form_cadastro h1{
+        font-size: 20px;
+    }
+}
