@@ -1,1 +1,13 @@
-    
+/* ============================================================
+   CADASTRO LIVRO — page-level CSS
+   Compensa o header fixo e define o fundo da página
+   ============================================================ */
+
+/* Empurra o conteúdo para baixo do header fixo */
+main {
+  padding-top: var(--header-height);
+  min-height: 100vh;
+  background-color: var(--cor-fundo);
+  display: flex;
+  flex-direction: column;
+}

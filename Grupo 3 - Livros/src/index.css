@@ -1,14 +1,134 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ============================================================
+   DESIGN SYSTEM — BIBLIOTECA DIGITAL
+   Estética editorial premium inspirada em livrarias sofisticadas
+   ============================================================ */
 
-    font-family: "Montserrat", sans-serif;
+:root {
+  /* Paleta principal (Nova Identidade Visual) */
+  --cor-fundo:         #F7F6F3;      /* tons claros neutros */
+  --cor-fundo-alt:     #EAE8E3;      /* cinza/bege bem suave */
+  --cor-primaria:      #13260F;      /* Evergreen (dominante) */
+  --cor-primaria-hover:#344F30;      /* Dark Spruce */
+  --cor-secundaria:    #F47230;      /* Atomic Tangerine */
+  --cor-secundaria-light: #F78E56;
+  --cor-mahogany:      #411102;      /* Rich Mahogany */
+  --cor-rust:          #9F350B;      /* Rust Brown */
+  --cor-texto:         #344F30;      /* Dark Spruce */
+  --cor-texto-suave:   #666666;      /* cinza neutro */
+  --cor-borda:         rgba(19, 38, 15, 0.08); /* Borda suave */
+  --cor-linha:         rgba(19, 38, 15, 0.12);
+  --cor-branco:        #FFFFFF;
+
+  /* Tipografia */
+  --fonte-titulo:      'Playfair Display', Georgia, serif;
+  --fonte-corpo:       'Inter', -apple-system, sans-serif;
+
+  /* Escala tipográfica */
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.875rem;
+  --fs-base: 1rem;
+  --fs-md:   1.125rem;
+  --fs-lg:   1.375rem;
+  --fs-xl:   1.75rem;
+  --fs-2xl:  2.25rem;
+  --fs-3xl:  3rem;
+
+  /* Espaçamento */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  /* Bordas arredondadas (12px–18px conforme spec) */
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  18px;
+
+  /* Sombras suaves */
+  --sombra-sm:  0 2px 8px rgba(19, 38, 15, 0.04);
+  --sombra-md:  0 6px 20px rgba(19, 38, 15, 0.06);
+  --sombra-lg:  0 12px 36px rgba(19, 38, 15, 0.08);
+  --sombra-xl:  0 20px 48px rgba(19, 38, 15, 0.10);
+
+  /* Transições */
+  --tr-fast:   0.25s ease;
+  --tr-normal: 0.25s ease;
+  --tr-slow:   0.25s ease;
+
+  /* Layout */
+  --header-height: 72px;
+  --max-width:     1200px;
+  --grid-padding:  clamp(16px, 5vw, 80px);
 }
 
-.layout_grid{
-    width: 100%;
-    height: 100%;
-    max-width: 80%;
-    margin: 0 auto;
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  font-size: var(--fs-base);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   LAYOUT GRID — wrapper central
+   ============================================================ */
+.layout_grid {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-padding);
+}
+
+/* ============================================================
+   TIPOGRAFIA GLOBAL
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--cor-primaria);
+}
+
+h1 { font-size: var(--fs-2xl); }
+h2 { font-size: var(--fs-xl);  }
+h3 { font-size: var(--fs-lg);  }
+
+p {
+  color: var(--cor-texto-suave);
+  font-size: var(--fs-sm);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================================
+   SCROLLBAR DISCRETA
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cor-fundo-alt); }
+::-webkit-scrollbar-thumb {
+  background: var(--cor-borda);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--cor-secundaria); }

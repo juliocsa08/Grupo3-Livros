@@ -1,65 +1,128 @@
-header{
-    background-color: #13260F;
+/* ============================================================
+   HEADER — Navbar fixa, minimalista e editorial
+   ============================================================ */
 
-    height: 75px;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 
-    box-shadow: 1px 4px 4px 0px #00000055;
-    position: relative;
+  height: var(--header-height);
+  background-color: var(--cor-primaria);
+  border-bottom: 1px solid var(--cor-linha);
+  box-shadow: var(--sombra-sm);
+
+  /* Glassmorphism sutil em scroll */
+  backdrop-filter: blur(8px);
+  background-color: rgba(19, 38, 15, 0.95);
 }
 
-.cabecalho{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 100%;
+.cabecalho {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.cabecalho img{
-    height: 60px;
-    object-fit: contain;
+/* Logo */
+.cabecalho a:first-child {
+  display: flex;
+  align-items: center;
 }
 
-.link_header{
-    margin-left: 45px;
-
-    color: white;
-
-    text-decoration: none;
-    font-weight: bold;
-    transition: .3s;
+.cabecalho img {
+  height: 46px;
+  object-fit: contain;
+  transition: opacity var(--tr-fast);
+  /* Filter logo to invert/harmonize if needed, or keep original */
 }
 
-.link_header:hover{
-    color: white;
+.cabecalho img:hover {
+  opacity: 0.8;
 }
 
-@media screen and (max-width: 768px){
-    .cabecalho img{
-        height: 35px;
-    }
-
-    .link_header{
-        margin-left: 10px;
-    }
+/* Divisor decorativo dourado à esquerda do nav */
+.cabecalho::before {
+  content: none;
 }
 
-.button{
-    width: 200px;
-    height: 30px;
-
-    border: none;
-    cursor: pointer;
-
-    background-color: #411102;
-    color: white;
-
-    border-radius: 6px;
-    font-weight: bolder;
-
-    transition: .3s;
+/* Nav */
+.nav_header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
 }
 
-.button:hover{
-    background-color: #F47230;
+/* Links de navegação */
+.link_header {
+  position: relative;
+  padding: 6px 18px;
+  font-family: var(--fonte-corpo);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cor-branco);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: color var(--tr-fast), background-color var(--tr-fast);
+}
+
+.link_header::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 2px;
+  height: 2px;
+  background: var(--cor-secundaria);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--tr-normal);
+  border-radius: 99px;
+}
+
+.link_header:hover {
+  color: var(--cor-branco);
+  background-color: var(--cor-primaria-hover);
+}
+
+.link_header:hover::after {
+  transform: scaleX(1);
+}
+
+/* Botão logout (se houver) */
+.button {
+  padding: 8px 20px;
+  height: 36px;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-branco);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background-color var(--tr-fast), transform var(--tr-fast);
+}
+
+.button:hover {
+  background-color: var(--cor-mahogany);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media screen and (max-width: 768px) {
+  .cabecalho img {
+    height: 36px;
+  }
+
+  .link_header {
+    padding: 6px 10px;
+    font-size: var(--fs-xs);
+  }
 }

@@ -1,99 +1,195 @@
-.section_cadastro{
-    background-color: #344F30;
-    color: white;
+/* ============================================================
+   CADASTRO — Formulário editorial premium
+   ============================================================ */
 
-    padding: 50px 0;
+.section_cadastro {
+  background-color: var(--cor-primaria);
+  /* Faixa diagonal dourada no topo */
+  border-top: 4px solid var(--cor-secundaria);
+
+  padding: var(--space-2xl) 0;
 }
 
-.form_cadastro{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* -------- Wrapper do form -------- */
+.form_cadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.form_cadastro h1{
-    text-transform: uppercase;
-    color: white;
-
-    padding: 10px 20px;
-    border-radius: 10px;
-
-    transition: all 0.4s ease;
-    cursor: default;
+/* -------- Cabeçalho do form -------- */
+.cadastro_cabecalho {
+  text-align: center;
+  margin-bottom: var(--space-xl);
 }
 
-.form_cadastro h1:hover{
-    background-color: #344F30;
+.form_cadastro h1 {
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--cor-branco);
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
 
-    transform: translateY(-3px);
-
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+.form_cadastro .cadastro_subtitulo {
+  margin-top: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .form_cadastro hr {
-    max-width: 300px;
-    width: 100%;
-    border-style: solid;
-    border-width: 1px;
-    border-color: white;
-    margin-top: 5px;
+  width: 48px;
+  height: 2px;
+  border: none;
+  background: var(--cor-secundaria);
+  margin: var(--space-md) auto 0;
+  border-radius: 99px;
 }
 
-.campos_cadastro{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    gap: 25px;
-    padding-top: 60px;
+/* -------- Área de campos -------- */
+.campos_cadastro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: var(--space-lg);
+  padding-top: var(--space-md);
 }
 
-/* modificando o input e select */
+/* -------- Grupos de campo -------- */
+.campo_cad_nome,
+.campo_cad_genero {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+.campo_cad_nome label,
+.campo_cad_genero label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: var(--space-sm);
+}
+
+/* -------- Inputs & Select -------- */
 .campo_cad_nome input,
-.campo_cad_genero select{
-    border: none;
-    border-radius: 6px;
-    outline: none;
-    padding: 0 5px;
+.campo_cad_genero select {
+  width: 100%;
+  height: 46px;
+  padding: 0 var(--space-md);
 
-    width: 300px;
-    height: 30px;
+  font-family: var(--fonte-corpo);
+  font-size: var(--fs-base);
+  color: var(--cor-texto);
 
-    box-shadow: 1px 4px 4px 0px #00000045;
+  background-color: var(--cor-branco);
+  border: 1.5px solid var(--cor-primaria-hover);
+  border-radius: var(--radius-md);
 
-    margin-top: 7px;
+  outline: none;
+  box-shadow: var(--sombra-sm);
+  transition: border-color var(--tr-fast), box-shadow var(--tr-fast);
+
+  cursor: text;
 }
 
-.campo_cad_genero,
-.campo_cad_nome{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
+.campo_cad_genero select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2313260F' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.campo_cad_nome input:focus,
+.campo_cad_genero select:focus {
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 0 3px rgba(244, 114, 48, 0.18), var(--sombra-sm);
+}
+
+.campo_cad_nome input::placeholder {
+  color: #AAAAAA;
+  font-weight: 300;
+}
+
+/* -------- Upload de imagem -------- */
+.campo_cad_imagem {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .botao-upload {
-    width: 200px;
-    height: 40px;
-    background: #411102;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+
+  height: 46px;
+  padding: 0 var(--space-lg);
+  min-width: 160px;
+
+  font-family: var(--fonte-corpo);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: var(--cor-primaria);
+  background-color: var(--cor-fundo);
+  border: 1.5px dashed var(--cor-borda);
+  border-radius: var(--radius-md);
+
+  cursor: pointer;
+  transition: border-color var(--tr-fast), background-color var(--tr-fast), color var(--tr-fast);
 }
 
-@media screen and (max-width: 880px) {
-    .campos_cadastro{
-        flex-direction: column;
-        align-items: center;
-    }
+.botao-upload::before {
+  content: "📎";
+  font-size: 1em;
 }
 
-@media screen and (max-width: 340px) {
-    .form_cadastro h1{
-        font-size: 20px;
-    }
+.botao-upload:hover {
+  border-color: var(--cor-secundaria);
+  background-color: rgba(244, 114, 48, 0.06);
+  color: var(--cor-secundaria);
+}
+
+/* -------- Área dos botões -------- */
+.campos_cadastro .botao {
+  align-self: flex-end;
+  margin-bottom: 0;
+}
+
+/* -------- Responsive -------- */
+@media screen and (max-width: 680px) {
+  .campos_cadastro {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .campo_cad_nome,
+  .campo_cad_genero {
+    width: 100%;
+  }
+
+  .botao-upload {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .form_cadastro h1 {
+    font-size: var(--fs-lg);
+  }
 }

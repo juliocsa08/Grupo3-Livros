@@ -1,133 +1,263 @@
+/* ============================================================
+   LISTA — Tabela editorial premium com cards
+   ============================================================ */
+
+/* -------- Wrapper da seção -------- */
 .listagem {
-    /* vamos retirar:
-        header: 75px
-        cadastro: 252px
-        footer: 40px */
-    min-height: calc(100vh - (75px + 252px + 40px));
+  min-height: calc(100vh - (var(--header-height) + 280px + 120px));
+  padding: var(--space-2xl) 0 var(--space-3xl);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    padding: 40px 0;
+/* -------- Cabeçalho da lista -------- */
+.listagem_cabecalho {
+  text-align: center;
+  margin-bottom: var(--space-xl);
 }
 
 .listagem h1 {
-    text-transform: uppercase;
-    color: #9F350B;
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--cor-primaria);
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.listagem_subtitulo {
+  font-size: var(--fs-sm);
+  color: var(--cor-texto-suave);
+  margin-top: var(--space-xs);
+  letter-spacing: 0.03em;
 }
 
 .listagem hr {
-    max-width: 300px;
-    width: 100%;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #73061B;
-    margin-top: 5px;
+  width: 48px;
+  height: 2px;
+  border: none;
+  background: var(--cor-secundaria);
+  margin: var(--space-md) auto 0;
+  border-radius: 99px;
 }
 
-.icon{
-    color: #9F350B;
-    font-size: 28px;
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
+/* -------- Tabela -------- */
 .tabela {
-    width: 100%;
-    margin-top: 30px;
+  width: 100%;
+  margin-top: var(--space-lg);
+
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-linha);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--sombra-md);
+  overflow: hidden;
 }
 
 .tabela table {
-    width: 100%;
-
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.tabela .table_cabecalho :first-child {
-    width: 300px;
-}
-
-.tabela .table_cabecalho :nth-child(2) {
-    width: 200px;
+/* -------- Cabeçalho da tabela -------- */
+.tabela .table_cabecalho {
+  background-color: var(--cor-fundo-alt);
+  border-bottom: 2px solid var(--cor-linha);
 }
 
 .tabela .table_cabecalho th {
-    width: 100px;
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--fonte-corpo);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+  text-align: center;
+}
+
+.tabela .table_cabecalho :first-child { width: 220px; }
+.tabela .table_cabecalho :nth-child(2) { width: auto; }
+.tabela .table_cabecalho th { width: 100px; }
+
+/* -------- Linhas da tabela -------- */
+.item_lista {
+  text-align: center;
+  border-bottom: 1px solid var(--cor-linha);
+  transition: background-color var(--tr-fast);
+}
+
+.item_lista:last-child {
+  border-bottom: none;
+}
+
+.item_lista:hover {
+  background-color: var(--cor-fundo);
 }
 
 .item_lista td {
-    /* desgrudar o item do titulo */
-    padding: 20px 0 10px 0;
+  padding: var(--space-lg);
+  font-size: var(--fs-sm);
+  color: var(--cor-texto);
+  vertical-align: middle;
 }
 
-.item_lista {
-    text-align: center;
-
-    border-bottom: solid 1px #73061B20;
+/* Coluna de imagem */
+.img_filme {
+  width: 56px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--sombra-sm);
+  display: block;
+  margin: 0 auto;
 }
 
+/* Coluna de nome / título */
+.item_lista td:nth-child(2) {
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  color: var(--cor-primaria);
+  text-align: left;
+  padding-left: var(--space-xl);
+}
+
+/* -------- Estado vazio -------- */
+.item_lista td:only-child {
+  padding: var(--space-2xl);
+  color: var(--cor-texto-suave);
+  font-style: italic;
+  font-size: var(--fs-sm);
+  text-align: center !important;
+}
+
+/* -------- Ícones de ação -------- */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--radius-sm);
+  background: transparent;
+
+  color: var(--cor-primaria-hover);
+  font-size: 15px;
+
+  cursor: pointer;
+  transition:
+    color var(--tr-fast),
+    background-color var(--tr-fast),
+    border-color var(--tr-fast),
+    transform var(--tr-fast);
+
+  padding: 0;
+  margin: 0 3px;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.icon:hover {
+  color: var(--cor-branco);
+  background-color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  transform: translateY(-1px);
+}
+
+.icon:focus,
+.icon:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.icon svg {
+  pointer-events: none;
+}
+
+/* Ícone de lixeira — tom de atenção no hover */
+.icon--excluir:hover {
+  background-color: var(--cor-mahogany);
+  border-color: var(--cor-mahogany);
+}
+
+/* Ícone olho / resumo — tom dourado/laranja */
+.icon--resumo:hover {
+  background-color: var(--cor-secundaria);
+  border-color: var(--cor-secundaria);
+}
+
+.icon img {
+  width: 16px;
+  height: 16px;
+  filter: invert(0);
+}
+
+.icon:hover img {
+  filter: brightness(10);
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile como cards
+   ============================================================ */
 @media screen and (max-width: 768px) {
 
-    /* 1px - 768px */
-    .tabela thead {
-        display: none;
-    }
+  .tabela thead {
+    display: none;
+  }
 
-    /* Um elemento abaixo do outro: */
-    .item_lista td {
-        display: grid;
-        text-align: left;
-        padding: 10px 10px 10px 0;
-        grid-template-columns: 10ch auto;
-    }
-
-    .item_lista td::before {
-        /* Adiciona o data-cell do html e coloca os : depois */
-        content: attr(data-cell) ":";
-        font-weight: 700;
-        width: 80px;
-        text-align: left;
-    }
-
-    .item_lista td:last-child {
-        margin-bottom: 24px;
-    }
-
-    .item_lista td:first-child {
-        margin-top: 24px;
-    }
-}
-
-
-.icon{
-    border: none;
-    background: transparent;
-    cursor: pointer;
-
-    color: #9F350B;
-    font-size: 28px;
-
-    padding: 0;
-    margin: 0;
-
-    outline: none;
+  .tabela {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
     box-shadow: none;
+  }
 
-    -webkit-tap-highlight-color: transparent;
-}
+  .item_lista {
+    display: block;
+    border: 1px solid var(--cor-linha);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    padding: var(--space-md);
+    background: var(--cor-branco);
+    box-shadow: var(--sombra-sm);
+    text-align: left;
+  }
 
-.icon:hover,
-.icon:focus,
-.icon:active{
-    background: transparent;
-    color: #9F350B;
+  .item_lista:hover {
+    background-color: var(--cor-fundo);
+  }
 
-    outline: none;
-    box-shadow: none;
-}
+  .item_lista td {
+    display: grid;
+    grid-template-columns: 110px auto;
+    align-items: center;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px dashed var(--cor-linha);
+    font-size: var(--fs-sm);
+    text-align: left;
+  }
 
-.icon svg{
-    pointer-events: none;
+  .item_lista td:last-child {
+    border-bottom: none;
+    margin-top: var(--space-xs);
+  }
+
+  .item_lista td:nth-child(2) {
+    text-align: left;
+    padding-left: 0;
+  }
+
+  .item_lista td::before {
+    content: attr(data-cell) ":";
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cor-texto-suave);
+  }
 }

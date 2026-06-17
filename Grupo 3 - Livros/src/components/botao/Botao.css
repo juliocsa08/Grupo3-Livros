@@ -1,24 +1,62 @@
-.botao{
-    width: 200px;
-    height: 40px;
+/* ============================================================
+   BOTÃO — Refinado, editorial
+   ============================================================ */
 
-    border: none;
-    cursor: pointer;
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
 
-    background-color: #411102;
-    color: white;
+  min-width: 160px;
+  height: 44px;
+  padding: 0 var(--space-xl);
 
-    border-radius: 6px;
-    font-weight: bold;
+  font-family: var(--fonte-corpo);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 
-    transition: all .3s ease;
+  color: var(--cor-branco);
+  background-color: var(--cor-primaria);
 
-    display: block;
-    margin: 0 auto;
+  border: 2px solid var(--cor-primaria);
+  border-radius: var(--radius-md);
+
+  cursor: pointer;
+  transition:
+    background-color var(--tr-fast),
+    border-color var(--tr-fast),
+    color var(--tr-fast),
+    transform var(--tr-fast),
+    box-shadow var(--tr-fast);
 }
 
-.botao:hover{
-    background-color: #411102;
-    box-shadow: 0 4px 10px rgba(255,255,255,.15);
-    transform: translateY(-2px);
+.botao:hover {
+  background-color: var(--cor-primaria-hover);
+  border-color: var(--cor-primaria-hover);
+  color: var(--cor-branco);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-md);
+}
+
+.botao:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Variante secundária (Cancelar) */
+.botao.botao--cancelar {
+  background-color: var(--cor-rust);
+  color: var(--cor-branco);
+  border-color: var(--cor-rust);
+}
+
+.botao.botao--cancelar:hover {
+  background-color: var(--cor-mahogany);
+  border-color: var(--cor-mahogany);
+  color: var(--cor-branco);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-md);
 }

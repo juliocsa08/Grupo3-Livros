@@ -5,21 +5,44 @@ const Cadastro = (props) => {
     return (
         <section className="section_cadastro">
             <form onSubmit={(e) => props.funcCadastro(e)} className="layout_grid form_cadastro">
-                <h1>{props.tituloCadastro}</h1>
-                <hr />
+
+                <div className="cadastro_cabecalho">
+                    <h1>{props.tituloCadastro}</h1>
+                    <p className="cadastro_subtitulo">Preencha os dados abaixo</p>
+                    <hr />
+                </div>
+
                 <div className="campos_cadastro">
                     <div className="campo_cad_nome">
-                        <label htmlFor="nome">Titulo</label>
+                        <label htmlFor="nome">Título</label>
                         <input type="text" name="nome" placeholder={`Digite o nome do ${props.placeholder}`}
-                            //O valor do input vem de props (estado do componente pai)
                             value={props.valor}
-                            // Atualiza o estado do pai ao digitar
                             onChange={(e) => props.setValor(e.target.value)}
                         />
                     </div>
+                    {
+                        props.mostrarImagem && (
+                            <>
+                                <div className="campo_cad_nome">
+                                    <label htmlFor="autor">Autor</label>
+                                    <input type="text" name="autor" placeholder="Digite o nome do autor"
+                                        value={props.autor}
+                                        onChange={(e) => props.setAutor(e.target.value)}
+                                    />
+                                </div>
+                                <div className="campo_cad_nome">
+                                    <label htmlFor="ano">Ano</label>
+                                    <input type="number" name="ano" placeholder="Digite o ano de lançamento"
+                                        value={props.ano}
+                                        onChange={(e) => props.setAno(e.target.value)}
+                                    />
+                                </div>
+                            </>
+                        )
+                    }
                     <div className="campo_cad_genero" style={{ display: props.visibilidade }}>
                         <label htmlFor="genero">Gênero</label>
-                        <select name="genero" id="" value={props.idGenero} onChange={(e) => props.idGenero(e.target.value)}>
+                        <select name="genero" id="" value={props.idGenero} onChange={(e) => props.setIdGenero && props.setIdGenero(Number(e.target.value))}>
                             <option value="" disabled>Selecione</option>
                             {
                                 props.listaGeneros?.map((item) => {

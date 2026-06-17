@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\46725344801\\Desktop\\BackEnd3Sem\\BackEnd\\Projeto-Livro03\\LivrosBD\\LivrosBD.csproj": {}
+    "C:\\Users\\46725344801\\Desktop\\Projeto-Livro03\\LivrosBD\\LivrosBD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\46725344801\\Desktop\\BackEnd3Sem\\BackEnd\\Projeto-Livro03\\LivrosBD\\LivrosBD.csproj": {
+    "C:\\Users\\46725344801\\Desktop\\Projeto-Livro03\\LivrosBD\\LivrosBD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\46725344801\\Desktop\\BackEnd3Sem\\BackEnd\\Projeto-Livro03\\LivrosBD\\LivrosBD.csproj",
+        "projectUniqueName": "C:\\Users\\46725344801\\Desktop\\Projeto-Livro03\\LivrosBD\\LivrosBD.csproj",
         "projectName": "LivrosBD",
-        "projectPath": "C:\\Users\\46725344801\\Desktop\\BackEnd3Sem\\BackEnd\\Projeto-Livro03\\LivrosBD\\LivrosBD.csproj",
+        "projectPath": "C:\\Users\\46725344801\\Desktop\\Projeto-Livro03\\LivrosBD\\LivrosBD.csproj",
         "packagesPath": "C:\\Users\\46725344801\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\46725344801\\Desktop\\BackEnd3Sem\\BackEnd\\Projeto-Livro03\\LivrosBD\\obj\\",
+        "outputPath": "C:\\Users\\46725344801\\Desktop\\Projeto-Livro03\\LivrosBD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

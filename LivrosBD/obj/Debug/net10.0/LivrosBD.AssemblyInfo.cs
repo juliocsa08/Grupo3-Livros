@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LivrosBD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c0782a929468d696812f36d6af059a777784a42")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b860d9c9c013170531604bab635600e0ae8afbc9")]
 [assembly: System.Reflection.AssemblyProductAttribute("LivrosBD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LivrosBD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,9 +1,11 @@
 import "./Botao.css"
 
 const Botao = (props) => {
+    const isCancelar = props.nomeDoBotao === "Cancelar"
+
     return (
         <button
-            className="botao"
+            className={`botao${isCancelar ? " botao--cancelar" : ""}`}
             type={props.type || "submit"}
             onClick={props.onClick}
         >

@@ -1,13 +1,68 @@
-footer{
-    background-color: #13260F;
-    color: white;
+/* ============================================================
+   FOOTER — Editorial, elegante
+   ============================================================ */
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+footer {
+  background-color: var(--cor-primaria);
+  color: rgba(255, 255, 255, 0.65);
 
-    height: 40px;
+  border-top: 3px solid var(--cor-secundaria);
 
-    text-align: center;
+  padding: var(--space-xl) 0;
+  margin-top: auto;
+}
 
+.footer_inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-padding);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Ornamento decorativo topo */
+.footer_ornamento {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.footer_ornamento span {
+  width: 40px;
+  height: 1px;
+  background: var(--cor-secundaria);
+  opacity: 0.5;
+}
+
+.footer_ornamento em {
+  font-style: normal;
+  color: var(--cor-secundaria);
+  font-size: var(--fs-lg);
+}
+
+/* Nome do projeto */
+.footer_marca {
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Texto copyright */
+footer p {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 300;
+}
+
+@media screen and (max-width: 480px) {
+  footer { padding: var(--space-lg) 0; }
 }

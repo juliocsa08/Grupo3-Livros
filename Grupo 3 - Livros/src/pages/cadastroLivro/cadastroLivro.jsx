@@ -1,46 +1,57 @@
+import "./cadastroLivro.css"
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 import Cadastro from "../../components/cadastro/Cadastro"
 import Lista from "../../components/lista/Lista"
 import { useEffect, useState } from "react"
 import { Alerta } from "../../components/alerta/Alerta"
+import api from "../../services/Services"
+import { LoadingIcon } from "../../components/loading/LoadingIcon"
+import { gerarResumo } from "../../services/IAServices"
 
 const CadastroLivro = () => {
-
     const [valor, setValor] = useState("")
+    const [autor, setAutor] = useState("")
+    const [ano, setAno] = useState("")
     const [imagem, setImagem] = useState("")
     const [editar, setEditar] = useState(false)
     const [listaLivros, setListaLivros] = useState([])
     const [id, setId] = useState(0)
-    const [idGenero, setIdGenero] = useState(1)
+    const [idGenero, setIdGenero] = useState("")
     const [showLoading, setShowLoading] = useState(false)
+    const [listaGeneros, setListaGeneros] = useState([])
 
-    const [listaGeneros, setListaGeneros] = useState([
-        { idGenero: 1, nome: "Romance" },
-        { idGenero: 2, nome: "Fantasia" },
-        { idGenero: 3, nome: "Terror" },
-        { idGenero: 4, nome: "Ficção" },
-        { idGenero: 5, nome: "Biografia" }
-    ])
-
-    const getLivros = () => {
-        const dadosFake = [
-            {
-                idLivro: 1,
-                titulo: "Livro Exemplo 1",
-                idGenero: 1
-            },
-            {
-                idLivro: 2,
-                titulo: "Livro Exemplo 2",
-                idGenero: 2
+    const getGeneros = async () => {
+        try {
+            const response = await api.get("/Genero")
+            setListaGeneros(response.data)
+            if (response.data.length > 0 && !idGenero) {
+                setIdGenero(response.data[0].idGenero)
             }
-        ]
-
-        setListaLivros(dadosFake)
+        } catch (error) {
+            console.error("Erro ao buscar gêneros", error)
+        }
     }
 
-    const cadastrarLivro = (e) => {
+    const getLivros = async () => {
+        setShowLoading(true)
+        try {
+            const response = await api.get("/Livros")
+            setListaLivros(response.data)
+        } catch (error) {
+            console.error("Erro ao buscar livros", error)
+            Alerta({
+                title: "Erro ao buscar livros",
+                text: "Não foi possível carregar a lista de livros.",
+                icon: "error",
+                confirmButtonText: "Fechar"
+            })
+        } finally {
+            setShowLoading(false)
+        }
+    }
+
+    const cadastrarLivro = async (e) => {
         e.preventDefault()
 
         if (valor.trim().length === 0) {
@@ -53,74 +64,184 @@ const CadastroLivro = () => {
             return
         }
 
-        const novoLivro = {
-            idLivro: Date.now(),
-            titulo: valor,
-            idGenero: idGenero,
-            imagem: imagem
+        if (autor.trim().length === 0) {
+            Alerta({
+                title: "Cadastro de Livro",
+                text: "Preencher o nome do autor",
+                icon: "warning",
+                confirmButtonText: "Fechar"
+            })
+            return
         }
 
-        setListaLivros([...listaLivros, novoLivro])
+        if (!ano) {
+            Alerta({
+                title: "Cadastro de Livro",
+                text: "Preencher o ano de lançamento",
+                icon: "warning",
+                confirmButtonText: "Fechar"
+            })
+            return
+        }
 
-        Alerta({
-            title: "Cadastro de Livro",
-            text: "Livro cadastrado com sucesso",
-            icon: "success",
-            confirmButtonText: "Fechar"
-        })
+        setShowLoading(true)
+        try {
+            const formData = new FormData()
+            formData.append("titulo", valor.trim())
+            formData.append("autor", autor.trim())
+            formData.append("ano", Number(ano))
+            formData.append("idGenero", Number(idGenero))
+            if (imagem) {
+                formData.append("imagem", imagem)
+            }
 
-        limparDados()
+            await api.post("/Livros", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            })
+
+            Alerta({
+                title: "Cadastro de Livro",
+                text: "Livro cadastrado com sucesso",
+                icon: "success",
+                confirmButtonText: "Fechar"
+            })
+
+            limparDados()
+            getLivros()
+        } catch (error) {
+            console.error("Erro ao cadastrar livro", error)
+            Alerta({
+                title: "Erro ao cadastrar",
+                text: "Não foi possível cadastrar o livro. Verifique os dados.",
+                icon: "error",
+                confirmButtonText: "Fechar"
+            })
+        } finally {
+            setShowLoading(false)
+        }
     }
 
     const preEditar = (item) => {
         setValor(item.titulo)
+        setAutor(item.autor || "")
+        setAno(item.ano || "")
         setId(item.idLivro)
         setIdGenero(item.idGenero)
         setEditar(true)
     }
 
-    const editarLivro = (e) => {
+    const editarLivro = async (e) => {
         e.preventDefault()
 
-        const listaAtualizada = listaLivros.map((livro) =>
-            livro.idLivro === id
-                ? { ...livro, titulo: valor, idGenero: idGenero }
-                : livro
-        )
+        if (valor.trim().length === 0) {
+            Alerta({
+                title: "Cadastro de Livro",
+                text: "Preencher o nome do livro",
+                icon: "warning",
+                confirmButtonText: "Fechar"
+            })
+            return
+        }
 
-        setListaLivros(listaAtualizada)
+        if (autor.trim().length === 0) {
+            Alerta({
+                title: "Cadastro de Livro",
+                text: "Preencher o nome do autor",
+                icon: "warning",
+                confirmButtonText: "Fechar"
+            })
+            return
+        }
 
-        Alerta({
-            title: "Cadastro de Livro",
-            text: "Livro editado com sucesso",
-            icon: "success",
-            confirmButtonText: "Fechar"
-        })
+        if (!ano) {
+            Alerta({
+                title: "Cadastro de Livro",
+                text: "Preencher o ano de lançamento",
+                icon: "warning",
+                confirmButtonText: "Fechar"
+            })
+            return
+        }
 
-        limparDados()
+        setShowLoading(true)
+        try {
+            const formData = new FormData()
+            formData.append("titulo", valor.trim())
+            formData.append("autor", autor.trim())
+            formData.append("ano", Number(ano))
+            formData.append("idGenero", Number(idGenero))
+            if (imagem) {
+                formData.append("imagem", imagem)
+            }
+
+            await api.put(`/Livros/${id}`, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            })
+
+            Alerta({
+                title: "Cadastro de Livro",
+                text: "Livro editado com sucesso",
+                icon: "success",
+                confirmButtonText: "Fechar"
+            })
+
+            limparDados()
+            getLivros()
+        } catch (error) {
+            console.error("Erro ao editar livro", error)
+            Alerta({
+                title: "Erro ao editar",
+                text: "Não foi possível editar o livro.",
+                icon: "error",
+                confirmButtonText: "Fechar"
+            })
+        } finally {
+            setShowLoading(false)
+        }
     }
 
-    const excluirLivro = (item) => {
-        const novaLista = listaLivros.filter(
-            (livro) => livro.idLivro !== item.idLivro
-        )
+    const excluirLivro = async (item) => {
+        setShowLoading(true)
+        try {
+            await api.delete(`/Livros/${item.idLivro}`)
 
-        setListaLivros(novaLista)
+            Alerta({
+                title: "Cadastro de Livro",
+                text: "Livro removido",
+                icon: "success",
+                confirmButtonText: "Fechar"
+            })
 
-        Alerta({
-            title: "Cadastro de Livro",
-            text: "Livro removido",
-            icon: "success",
-            confirmButtonText: "Fechar"
-        })
+            getLivros()
+        } catch (error) {
+            console.error("Erro ao excluir livro", error)
+            Alerta({
+                title: "Erro ao excluir",
+                text: "Não foi possível excluir o livro.",
+                icon: "error",
+                confirmButtonText: "Fechar"
+            })
+        } finally {
+            setShowLoading(false)
+        }
     }
 
     const limparDados = () => {
         setValor("")
+        setAutor("")
+        setAno("")
         setEditar(false)
         setId(0)
-        setIdGenero(1)
         setImagem("")
+        if (listaGeneros.length > 0) {
+            setIdGenero(listaGeneros[0].idGenero)
+        } else {
+            setIdGenero("")
+        }
     }
 
     const resumoDoLivro = async (livro) => {
@@ -144,11 +265,16 @@ const CadastroLivro = () => {
     }
 
     useEffect(() => {
-        getLivros()
+        const loadInitialData = async () => {
+            await getGeneros()
+            await getLivros()
+        }
+        loadInitialData()
     }, [])
 
     return (
         <>
+            <LoadingIcon showHide={showLoading} />
             <Header />
 
             <main>
@@ -162,6 +288,11 @@ const CadastroLivro = () => {
 
                     valor={valor}
                     setValor={setValor}
+
+                    autor={autor}
+                    setAutor={setAutor}
+                    ano={ano}
+                    setAno={setAno}
 
                     listaGeneros={listaGeneros}
                     idGenero={idGenero}

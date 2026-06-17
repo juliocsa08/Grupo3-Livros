@@ -1,0 +1,12 @@
+/* ============================================================
+   CADASTRO GÊNERO — page-level CSS
+   Compensa o header fixo e define o fundo da página
+   ============================================================ */
+
+main {
+  padding-top: var(--header-height);
+  min-height: 100vh;
+  background-color: var(--cor-fundo);
+  display: flex;
+  flex-direction: column;
+}

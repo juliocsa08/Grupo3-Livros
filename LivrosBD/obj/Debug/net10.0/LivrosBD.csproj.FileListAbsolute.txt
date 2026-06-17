@@ -154,7 +154,6 @@ C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\staticwe
 C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.csproj.Up2Date
 C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.dll
 C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\refint\LivrosBD.dll
@@ -327,3 +326,4 @@ C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\De
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.pdb
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.genruntimeconfig.cache
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\ref\LivrosBD.dll
+C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.sourcelink.json
