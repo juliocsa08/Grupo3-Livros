@@ -1,0 +1,251 @@
+/* ============================================================
+   CADASTRO — Página de registro premium, estilo livraria editorial
+   ============================================================ */
+
+.main_cadastro {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--cor-fundo);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   BANNER SUPERIOR (100% largura)
+   ============================================================ */
+.main_cadastro .banner {
+  width: 100%;
+  height: 50vh;
+  min-height: 350px;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-xl);
+  box-sizing: border-box;
+}
+
+/* Overlay escurecido suave para legibilidade */
+.main_cadastro .banner_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(19, 38, 15, 0.78),
+    rgba(52, 79, 48, 0.55)
+  );
+  z-index: 1;
+}
+
+/* Texto sobre o banner */
+.main_cadastro .banner_texto {
+  position: relative;
+  z-index: 2;
+  color: var(--cor-branco);
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Linha dourada decorativa centralizada */
+.main_cadastro .banner_texto::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--cor-secundaria);
+  border-radius: 99px;
+  margin-bottom: var(--space-md);
+}
+
+.main_cadastro .banner_texto h2 {
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  color: var(--cor-branco);
+  line-height: 1.25;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
+}
+
+.main_cadastro .banner_texto p {
+  font-family: var(--fonte-corpo);
+  font-size: var(--fs-base);
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   PAINEL DE CADASTRO (Centralizado abaixo do banner)
+   ============================================================ */
+.section_cadastro {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-2xl) var(--space-md) calc(var(--space-2xl) + 40px) var(--space-md);
+  position: relative;
+  box-sizing: border-box;
+  animation: fadeInCadastro 0.8s ease-out forwards;
+}
+
+/* Card de cadastro elegante */
+.cadastro_card {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--cor-branco);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(19, 38, 15, 0.05), 0 1px 3px rgba(19, 38, 15, 0.02);
+  border: 1px solid var(--cor-borda);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Ornamento dourado sutil no topo do card */
+.cadastro_card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--cor-primaria) 0%,
+    var(--cor-secundaria) 50%,
+    var(--cor-primaria) 100%
+  );
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* Logo */
+.cadastro_card .logo {
+  width: 140px;
+  margin-bottom: var(--space-lg);
+  object-fit: contain;
+}
+
+/* ============================================================
+   FORMULÁRIO DE CADASTRO
+   ============================================================ */
+.form_cadastro {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.form_cadastro h1 {
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  color: var(--cor-primaria);
+  text-align: center;
+  margin: 0 0 var(--space-xs) 0;
+  letter-spacing: -0.01em;
+}
+
+.cadastro_subtitulo {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.02em;
+  margin-top: calc(-1 * var(--space-md));
+}
+
+/* -------- Campos do cadastro -------- */
+.campos_cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cadastro_link_login {
+  text-align: center;
+  margin-top: var(--space-sm);
+}
+
+.cadastro_link_login span {
+  font-size: var(--fs-sm);
+  color: var(--cor-secundaria);
+  cursor: pointer;
+  font-weight: 500;
+  transition: color var(--tr-fast);
+}
+
+.cadastro_link_login span:hover {
+  color: var(--cor-primaria-hover);
+  text-decoration: underline;
+}
+
+/* Rodapé do painel */
+.cadastro_rodape {
+  position: absolute;
+  bottom: var(--space-md);
+  font-size: var(--fs-xs);
+  color: var(--cor-texto-suave);
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+  text-align: center;
+  width: 100%;
+  left: 0;
+}
+
+/* Animations */
+@keyframes fadeInCadastro {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .main_cadastro .banner {
+    height: 40vh;
+    min-height: 280px;
+  }
+
+  .main_cadastro .banner_texto h2 {
+    font-size: var(--fs-xl);
+  }
+
+  .main_cadastro .banner_texto p {
+    font-size: var(--fs-xs);
+  }
+
+  .section_cadastro {
+    padding: var(--space-xl) var(--space-sm) calc(var(--space-xl) + 40px) var(--space-sm);
+  }
+
+  .cadastro_card {
+    padding: 36px 24px;
+    border-radius: var(--radius-lg);
+  }
+
+  .cadastro_card::before {
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
+  }
+}

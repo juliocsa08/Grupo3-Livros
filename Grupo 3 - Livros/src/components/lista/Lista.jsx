@@ -24,12 +24,14 @@ const Lista = (props) => {
                         {/* cabeçalho da tabela: */}
                         <thead>
                             <tr className="table_cabecalho">
-                                <th style={{ display: props.visibilidade }}>Imagem</th>
-                                <th>Nome</th>
-                                <th style={{ display: props.visibilidade }}>Gênero</th>
-                                <th>Editar</th>
-                                {props.fnResumo && <th>Resumo</th>}
-                                <th>Excluir</th>
+                                <th className="col-imagem" style={{ display: props.visibilidade }}>Imagem</th>
+                                <th className="col-nome">Nome</th>
+                                {props.tipoLista === "livro" && <th className="col-autor">Autor</th>}
+                                {props.tipoLista === "livro" && <th className="col-ano">Ano</th>}
+                                <th className="col-genero" style={{ display: props.visibilidade }}>Gênero</th>
+                                <th className="col-editar">Editar</th>
+                                {props.fnResumo && <th className="col-resumo">Resumo</th>}
+                                <th className="col-excluir">Excluir</th>
                             </tr>
                         </thead>
                         {/* tbody => corpo da tabela */}
@@ -37,7 +39,7 @@ const Lista = (props) => {
                             {props.lista && props.lista.length > 0 ? (
                                 props.lista.map((item) => (
                                     <tr className="item_lista" key={item.idFilme ?? item.idGenero ?? item.idLivro}>
-                                        <td data-cell="Imagem" style={{ display: props.visibilidade }}>
+                                        <td className="col-imagem" data-cell="Imagem" style={{ display: props.visibilidade }}>
                                             {item.imagem && (
                                                 <img
                                                     className="img_filme"
@@ -46,13 +48,23 @@ const Lista = (props) => {
                                                 />
                                             )}
                                         </td>
-                                        <td data-cell="Nome">
+                                        <td className="col-nome" data-cell="Nome">
                                             {props.tipoLista === "genero" ? item.nome : item.titulo}
                                         </td>
-                                        <td data-cell="Gênero" style={{ display: props.visibilidade }}>
+                                        {props.tipoLista === "livro" && (
+                                            <td className="col-autor" data-cell="Autor">
+                                                {item.autor || "-"}
+                                            </td>
+                                        )}
+                                        {props.tipoLista === "livro" && (
+                                            <td className="col-ano" data-cell="Ano">
+                                                {item.ano || "-"}
+                                            </td>
+                                        )}
+                                        <td className="col-genero" data-cell="Gênero" style={{ display: props.visibilidade }}>
                                             {props.listaGeneros?.find(g => g.idGenero === item.idGenero)?.nome || '-'}
                                         </td>
-                                        <td data-cell="Editar">
+                                        <td className="col-editar" data-cell="Editar">
                                             <button className="icon icon--editar" onClick={() => props.funcEditar && props.funcEditar(item)}>
                                                 <FaEdit />
                                             </button>
@@ -60,7 +72,7 @@ const Lista = (props) => {
 
                                         {
                                             props.fnResumo && (
-                                                <td data-cell="Resumo">
+                                                <td className="col-resumo" data-cell="Resumo">
                                                     <button
                                                         className="icon icon--resumo"
                                                         onClick={() => props.fnResumo(item)}
@@ -71,7 +83,7 @@ const Lista = (props) => {
                                             )
                                         }
 
-                                        <td data-cell="Excluir">
+                                        <td className="col-excluir" data-cell="Excluir">
                                             <button className="icon icon--excluir" onClick={() => props.funcExcluir && props.funcExcluir(item)}>
                                                 <FaTrash />
                                             </button>
@@ -80,7 +92,7 @@ const Lista = (props) => {
                                 ))
                             ) : (
                                 <tr>
-                                    <td>Nenhum registro encontrado.</td>
+                                    <td colSpan={props.tipoLista === "livro" ? 8 : 6}>Nenhum registro encontrado.</td>
                                 </tr>
                             )
                             }

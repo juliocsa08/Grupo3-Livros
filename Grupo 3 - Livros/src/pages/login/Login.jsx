@@ -41,6 +41,7 @@ const Login = () => {
 
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("Usuario", JSON.stringify(userSession));
+            localStorage.setItem("user", JSON.stringify(userSession));
             setUsuario(userSession);
 
             Alerta({
@@ -50,13 +51,12 @@ const Login = () => {
                 confirmButtonText: "Fechar"
             });
 
-            navigate("/genero");
+            navigate("/home");
         } catch (error) {
             console.error("Erro no login", error);
-            const msgError = error.response?.data || "Não foi possível realizar o login. Verifique seu e-mail e senha.";
             Alerta({
-                title: "Erro ao acessar",
-                text: typeof msgError === 'string' ? msgError : "Email ou Senha Inválidos !",
+                title: "Acesso negado",
+                text: "E-mail ou senha incorretos.",
                 icon: "error",
                 confirmButtonText: "Fechar"
             });
@@ -128,6 +128,22 @@ const Login = () => {
                         </div>
 
                         <Botao onClick={login} nomeDoBotao="Acessar" btnEditar={true} />
+
+                        <div className="login_link_cadastro" style={{ textAlign: "center", marginTop: "16px" }}>
+                            <span 
+                                onClick={() => navigate("/cadastro")} 
+                                style={{ 
+                                    fontSize: "14px", 
+                                    color: "var(--cor-secundaria)", 
+                                    cursor: "pointer", 
+                                    fontWeight: "500" 
+                                }}
+                                onMouseEnter={(e) => { e.target.style.color = "var(--cor-primaria-hover)"; e.target.style.textDecoration = "underline"; }}
+                                onMouseLeave={(e) => { e.target.style.color = "var(--cor-secundaria)"; e.target.style.textDecoration = "none"; }}
+                            >
+                                Não possui conta? Cadastre-se
+                            </span>
+                        </div>
                     </form>
                 </div>
                 <span className="login_rodape">Biblioteca Digital © {new Date().getFullYear()}</span>

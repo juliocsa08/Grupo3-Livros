@@ -8,6 +8,7 @@ const Botao = (props) => {
             className={`botao${isCancelar ? " botao--cancelar" : ""}`}
             type={props.type || "submit"}
             onClick={props.onClick}
+            disabled={props.disabled}
         >
             {props.nomeDoBotao}
         </button>

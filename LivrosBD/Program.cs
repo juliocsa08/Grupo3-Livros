@@ -79,15 +79,17 @@ builder.Services.AddControllers();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("CorsPolicy", policy =>
+    options.AddPolicy("Front", policy =>
     {
         policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
 var app = builder.Build();
+
+app.UseCors("Front");
 
 app.UseAuthentication();
 
@@ -104,9 +106,9 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseCors("CorsPolicy");
-
 // Adicione mapeamento de Controllers
 app.MapControllers();
+
+app.UseStaticFiles();
 
 app.Run();

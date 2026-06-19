@@ -161,10 +161,11 @@ C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD
 C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.genruntimeconfig.cache
 C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\ref\LivrosBD.dll
 C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\bin\Debug\net10.0\LivrosBD.staticwebassets.runtime.json
+C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.sourcelink.json
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\bin\Debug\net10.0\appsettings.json
-C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\bin\Debug\net10.0\LivrosBD.staticwebassets.endpoints.json
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\bin\Debug\net10.0\LivrosBD.staticwebassets.runtime.json
+C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\bin\Debug\net10.0\LivrosBD.staticwebassets.endpoints.json
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\bin\Debug\net10.0\LivrosBD.exe
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\bin\Debug\net10.0\LivrosBD.deps.json
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\bin\Debug\net10.0\LivrosBD.runtimeconfig.json
@@ -319,11 +320,9 @@ C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\De
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.csproj.Up2Date
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.dll
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\refint\LivrosBD.dll
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.pdb
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.genruntimeconfig.cache
 C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\ref\LivrosBD.dll
-C:\Users\46725344801\Desktop\Projeto-Livro03\LivrosBD\obj\Debug\net10.0\LivrosBD.sourcelink.json
